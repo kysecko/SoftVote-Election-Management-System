@@ -1,0 +1,238 @@
+@import url(../shared.css);
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: #1a1f2e;
+  background-color: #eef2f7;
+  background-image:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(99, 102, 241, 0.12) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 85% 75%,
+      rgba(16, 185, 129, 0.1) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(255, 255, 255, 0.6) 0%,
+      transparent 70%
+    );
+}
+
+/* MODAL OVERLAY */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(238, 242, 247, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* MODAL CARD */
+
+.modal-container {
+  background: #ffffff;
+  padding: 48px 40px 44px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.1);
+  border-image: linear-gradient(90deg, #6366f1 0%, #10b981 100%) 1;
+  animation: cardEnter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+}
+
+.modal-container::before,
+.modal-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.modal-container::before {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.07) 0%,
+    transparent 70%
+  );
+  top: -60px;
+  right: -60px;
+}
+
+.modal-container::after {
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.07) 0%,
+    transparent 70%
+  );
+  bottom: -50px;
+  left: -50px;
+}
+
+/* ILLUSTRATION IMAGE */
+
+.vote-illustration {
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  animation: iconPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+  position: relative;
+  z-index: 1;
+}
+
+/* TYPOGRAPHY */
+
+.modal-title {
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+.modal-subtitle {
+  font-size: 0.975rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin-bottom: 36px;
+  line-height: 1.65;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* BUTTON */
+
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 13px 32px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  background: #dc2626;
+  box-shadow:
+    0 4px 12px rgba(99, 102, 241, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.logout-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 65%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.45s ease;
+}
+
+.logout-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(16, 185, 129, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.logout-button:hover::before {
+  transform: translateX(100%);
+}
+
+.logout-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* ANIMATIONS */
+
+@keyframes cardEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes iconPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+  .modal-container {
+    padding: 36px 24px 32px;
+    border-radius: 20px;
+  }
+
+  .modal-title {
+    font-size: 1.6rem;
+  }
+
+  .modal-subtitle {
+    font-size: 0.925rem;
+  }
+
+  .vote-illustration {
+    width: 110px;
+    height: 110px;
+  }
+}

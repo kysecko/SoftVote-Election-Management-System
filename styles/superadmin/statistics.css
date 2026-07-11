@@ -1,0 +1,141 @@
+/* Election Statistics */
+.tally-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tally-position {
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tally-position-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+}
+
+.tally-position-name {
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--text1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tally-position-name i {
+  width: 14px;
+  height: 14px;
+  color: var(--amber);
+}
+
+.tally-total {
+  font-size: 11px;
+  color: var(--text3);
+  font-family: var(--font-mono);
+}
+
+.tally-rows {
+  padding: 8px 0;
+}
+
+.tally-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px;
+  transition: background 0.1s;
+}
+
+.tally-row:hover {
+  background: var(--bg2);
+}
+
+.tally-rank {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.tally-rank.first {
+  color: var(--amber);
+}
+
+.tally-rank.second {
+  color: var(--text2);
+}
+
+.tally-rank.third {
+  color: #cd7f32;
+}
+
+.tally-candidate {
+  flex: 1;
+  min-width: 0;
+}
+
+.tally-candidate-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tally-bar-wrap {
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.tally-bar-track {
+  height: 6px;
+  background: var(--bg3);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.tally-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--amber), var(--amber2));
+  width: 0%;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+
+.tally-votes {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text1);
+  width: 48px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.tally-pct {
+  font-size: 11px;
+  color: var(--text3);
+  font-family: var(--font-mono);
+  width: 40px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.tally-empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--text3);
+  font-size: 13px;
+}

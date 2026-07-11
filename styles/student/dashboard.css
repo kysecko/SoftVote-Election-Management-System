@@ -1,0 +1,1067 @@
+/* @import url(../shared.css); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* ==================== HEADER ==================== */
+.main-header {
+  background: #ffffff;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Left: Logo + Text */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.brand-text h1 {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+}
+
+.brand-text p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Right: Logout Button */
+.header-right {
+  flex-shrink: 0;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.logout-btn i {
+  width: 18px;
+  height: 18px;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* ==================== MOBILE RESPONSIVENESS ==================== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 12px 16px;
+  }
+
+  .logo-img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-text h1 {
+    font-size: 15.5px;
+  }
+
+  .brand-text p {
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-container {
+    gap: 10px;
+  }
+
+  .brand-text h1 {
+    font-size: 14.5px;
+  }
+
+  .logout-btn {
+    padding: 9px 12px;
+    gap: 5px;
+    font-size: 13px;
+  }
+
+  .logout-text {
+    display: none; /* Only icon shows on very small screens */
+  }
+}
+
+/* MAIN WRAPPER */
+.main-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 20px 120px;
+  width: 100%;
+  animation: fadeIn 0.4s ease both;
+}
+
+/* ERROR MESSAGE */
+.error-message {
+  background: #fef2f2;
+  color: #991b1b;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* ── PROGRESS BAR ── */
+.voting-progress-bar {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 10px rgba(109, 40, 217, 0.07);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.voting-progress-bar h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.progress-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  transition: color 0.3s ease;
+}
+
+.progress-text.complete {
+  color: #10b981;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #ede9fe;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #a78bfa 0%, #7c3aed 100%);
+  border-radius: 999px;
+  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-fill.complete {
+  background: linear-gradient(90deg, #34d399 0%, #059669 100%);
+}
+
+/* ── BALLOT WRAPPER ── */
+.ballot-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 28px 0 4px;   
+}
+
+.board-title {
+  padding-top: 40px;
+}
+
+/* ── PARTY HEADER ROW ── */
+.party-header-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-top: -12px;   
+  margin-bottom: 4px;   
+}
+
+.party-header-cell {
+  flex: 1;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding-bottom: 0;
+  border-bottom: none;    
+  color: var(--party-color, #1e3a8a);
+  transition: color 0.2s;
+}
+
+.party-header-cell:first-child {
+  text-align: left;
+}
+
+.party-header-cell:last-child {
+  text-align: right;
+}
+
+/* Ballot card base */
+.ballot-card {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.1s;
+}
+
+/* Hover — uses the card's own --party-color */
+.ballot-card:hover {
+  border-color: var(--party-color, #1e3a8a);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--party-color, #1e3a8a) 20%, transparent);
+  transform: translateY(-2px);
+}
+
+/* Selected card — colored border + subtle tinted background */
+.ballot-card.selected {
+  border: 2.5px solid var(--party-color, #1e3a8a) !important;
+  background: color-mix(in srgb, var(--party-color, #1e3a8a) 8%, white) !important;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--party-color, #1e3a8a) 22%, transparent) !important;
+}
+
+.ballot-card.selected .ballot-name {
+  color: #111827;
+}
+/* Left accent bar */
+.ballot-card:hover::before,
+.ballot-card.selected::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--party-color, #1e3a8a);
+  border-radius: 12px 0 0 12px;
+}
+
+/* The "Selected" badge — pill with party color bg at 15% opacity + colored text */
+.ballot-selected-badge {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--party-color, #1e3a8a);
+  background: color-mix(in srgb, var(--party-color, #1e3a8a) 15%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--party-color, #1e3a8a) 35%, transparent);
+  border-radius: 20px;
+  padding: 4px 12px 4px 8px;
+  width: fit-content;
+  animation: badgeFadeIn 0.2s ease both;
+}
+
+.ballot-card.selected .ballot-selected-badge {
+  display: flex;
+}
+
+.ballot-selected-badge .check-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--party-color, #1e3a8a);
+  flex-shrink: 0;
+}
+
+/* ── POSITION BLOCK ── */
+.position-block {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 12px rgba(109, 40, 217, 0.06);
+  border: 1px solid #f0ebff;
+  transition: box-shadow 0.2s ease;
+}
+
+.position-block:hover {
+  box-shadow: 0 4px 20px rgba(109, 40, 217, 0.1);
+}
+
+/* ── POSITION TITLE ── */
+.position-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #374151;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+}
+
+/* ── PARTY ROW ── */
+.party-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  align-items: stretch;
+}
+
+.party-divider {
+  width: 1px;
+  background: none;
+  flex-shrink: 0;
+  margin: 12px;
+  align-self: stretch;
+}
+
+.party-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ballot-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d1d5db;
+  font-size: 12px;
+  font-style: italic;
+  border: 2px dashed #f3f4f6;
+  border-radius: 12px;
+  min-height: 80px;
+  letter-spacing: 0.3px;
+}
+
+.ballot-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border-radius: 14px;
+  border: 2px solid #e5e7eb;
+  background: #fafafa;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  min-height: 100px;
+}
+
+.ballot-card:hover {
+  border: 2px solid var(--party-color);
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.ballot-card.selected {
+  border: 3px solid var(--party-color) !important;
+  background: #fff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.ballot-card.selected .ballot-selected-badge {
+  color: var(--party-color);
+}
+
+.ballot-card.selected .check-icon {
+  color: var(--party-color);
+}
+
+/* Left accent bar */
+.ballot-card:hover::before,
+.ballot-card.selected::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--party-color);
+  border-radius: 12px 0 0 12px;
+}
+/* ── BALLOT PHOTO ── */
+.ballot-photo {
+  flex-shrink: 0;
+  width: 130px;
+  height: 130px;
+  background: #ede9fe;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ballot-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ballot-photo-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* ── BALLOT INFO ── */
+.ballot-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  padding: 16px 18px;
+}
+
+.ballot-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+.ballot-selected-badge {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  color: #7c3aed;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ballot-card.selected .ballot-selected-badge {
+  display: flex;
+}
+
+/* ── FIXED VOTE BUTTON ── */
+.vote-btn-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid #ede9fe;
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+  max-width: 1200px;
+  padding: 14px 20px;
+  box-shadow: 0 -6px 24px rgba(109, 40, 217, 0.1);
+}
+
+.vote-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  color: #ffffff;
+  border: none;
+  padding: 16px 40px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(109, 40, 217, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-family: inherit;
+}
+
+.vote-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: #9ca3af;
+  box-shadow: none;
+}
+
+.vote-btn:not(:disabled):hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.45);
+}
+
+.vote-btn:not(:disabled):active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(109, 40, 217, 0.3);
+}
+
+/* ── COUNTDOWN MODAL ──
+   Base styles first, then type variants below.
+   ORDER MATTERS — base must come before .cd-proceed.start/.end/.restart
+   so the variant backgrounds win the cascade. */
+.countdown-overlay {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.countdown-overlay.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.countdown-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 32px 28px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+  transition: transform 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.countdown-overlay.active .countdown-box {
+  transform: scale(1);
+}
+
+/* ── COUNTDOWN ICON ── */
+.countdown-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+/* Icon theme — start (green) */
+.countdown-icon.start {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+/* Icon theme — end (blue) */
+.countdown-icon.end {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+/* Icon theme — restart (red) */
+.countdown-icon.restart {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.countdown-box h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.cd-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* ── RING WRAP — SVG pointer-events disabled so it never blocks button clicks ── */
+.ring-wrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 24px;
+}
+
+.ring-wrap svg {
+  width: 110px;
+  height: 110px;
+  pointer-events: none; /* SVG never intercepts clicks */
+  display: block;
+}
+
+.ring-bg {
+  fill: none;
+  stroke: #f3f4f6;
+  stroke-width: 8;
+}
+
+/* ring-fill base — stroke color overridden per type below */
+.ring-fill {
+  fill: none;
+  stroke: #2563eb;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 55px 55px;
+  transition: stroke-dashoffset 1s linear;
+}
+
+/* Ring color — start (green) */
+.ring-fill.start-ring {
+  stroke: #16a34a;
+}
+
+/* Ring color — end (blue) */
+.ring-fill.end-ring {
+  stroke: #2563eb;
+}
+
+/* Ring color — restart (red) */
+.ring-fill.restart-ring {
+  stroke: #dc2626;
+}
+
+.ring-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  pointer-events: none;
+}
+
+.ring-number.urgent {
+  color: #dc2626;
+  animation: urgentPulse 0.4s ease infinite alternate;
+}
+
+/* ── COUNTDOWN BUTTONS ── */
+.countdown-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  position: relative;
+  z-index: 10; /* sit above ring SVG */
+}
+
+.cd-cancel {
+  padding: 10px 20px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cd-cancel:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+/* ── cd-proceed BASE — must be declared BEFORE the type variants
+   so that .cd-proceed.start / .end / .restart backgrounds win ── */
+.cd-proceed {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.cd-proceed:active {
+  transform: scale(0.97);
+}
+
+/* Proceed button — start theme (green) */
+.cd-proceed.start {
+  background: #16a34a;
+  color: #fff;
+}
+
+.cd-proceed.start:hover {
+  background: #15803d;
+}
+
+/* Proceed button — end theme (blue) */
+.cd-proceed.end {
+  background: #2563eb;
+  color: #fff;
+}
+
+.cd-proceed.end:hover {
+  background: #1d4ed8;
+}
+
+/* Proceed button — restart theme (red) */
+.cd-proceed.restart {
+  background: #dc2626;
+  color: #fff;
+}
+
+.cd-proceed.restart:hover {
+  background: #b91c1c;
+}
+
+/* ── START / END / RESTART ELECTION OVERLAY MODALS ── */
+.start-election-overlay {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.start-election-overlay.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.start-election-content {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px 28px 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+  transform: scale(0.95);
+  transition: transform 0.25s ease;
+  pointer-events: auto; /* guarantee inner buttons are always clickable */
+}
+
+.start-election-overlay.active .start-election-content {
+  transform: scale(1);
+}
+
+.start-election-content h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.start-election-content p {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.warning-list {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.warning-list h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #991b1b;
+  margin-bottom: 8px;
+}
+
+.warning-list ul {
+  padding-left: 18px;
+}
+
+.warning-list li {
+  font-size: 13px;
+  color: #b91c1c;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+/* ── MODAL ACTION BUTTONS ── */
+.btn-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* cancel button inside modals */
+.cancel,
+.btn-cancel {
+  padding: 9px 18px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cancel:hover,
+.btn-cancel:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+/* confirm/proceed button inside modals (green) */
+.confirm {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #16a34a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: inherit;
+}
+
+.confirm:hover {
+  background: #15803d;
+}
+
+/* restart button inside restart modal (red) */
+.btn-restart {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-restart:hover {
+  background: #b91c1c;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badgeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes urgentPulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* ── RESPONSIVE: 768px ── */
+@media (max-width: 768px) {
+  .ballot-photo {
+    width: 68px;
+  }
+  .ballot-name {
+    font-size: 12px;
+  }
+  .party-divider {
+    margin: 0 8px;
+  }
+  .position-block {
+    padding: 16px;
+  }
+  .ballot-info {
+    padding: 10px 12px;
+  }
+}
+
+/* ── RESPONSIVE: 540px ── */
+@media (max-width: 540px) {
+  .party-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .party-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+  }
+
+  .party-header-row {
+    display: none;
+  }
+
+  .party-column::before {
+    content: attr(data-party);
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    color: #7c3aed;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .logo-text h1 {
+    font-size: 16px;
+  }
+
+  .ballot-photo {
+    width: 58px;
+  }
+
+  .vote-btn {
+    font-size: 14px;
+    padding: 14px 20px;
+  }
+
+  .countdown-box {
+    max-width: 92vw;
+    padding: 28px 20px 22px;
+  }
+}
+
+/* REPLACE WITH: */
+.countdown-btns .cd-proceed.start {
+  background: #16a34a;
+  color: #fff;
+  opacity: 1;
+}
+.countdown-btns .cd-proceed.end {
+  background: #2563eb;
+  color: #fff;
+  opacity: 1;
+}
+.countdown-btns .cd-proceed.restart {
+  background: #dc2626;
+  color: #fff;
+  opacity: 1;
+}
+.countdown-btns .cd-proceed.start:hover {
+  background: #15803d;
+}
+.countdown-btns .cd-proceed.end:hover {
+  background: #1d4ed8;
+}
+.countdown-btns .cd-proceed.restart:hover {
+  background: #b91c1c;
+}

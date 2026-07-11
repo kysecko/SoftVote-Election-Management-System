@@ -1,0 +1,178 @@
+@import url(../shared.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* ===================== MAIN CONTAINER ===================== */
+.modal-overlay {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f4f6f8;
+}
+
+.modal-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 35px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: modalFadeIn 0.4s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ===================== CONTENT ===================== */
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.school-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* Success Box with Check Icon */
+.success-box {
+  background: #f0fdf4;
+  border: 2px solid #bbf7d0;
+  border-radius: 14px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #dcfce7;
+  border-radius: 50%;
+  margin-bottom: 16px;   /* ← Fixed spacing */
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  color: #16a34a;
+}
+
+.success-content h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 6px;
+}
+
+.success-content p {
+  font-size: 14.5px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* Important Notice */
+.important-notice {
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 28px;
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Button */
+.logout-button {
+  width: 100%;
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.logout-button:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .modal-container {
+    padding: 32px 24px;
+  }
+
+  .modal-title {
+    font-size: 22px;
+  }
+
+  .success-box {
+    padding: 20px 16px;
+  }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 14px;
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+}
